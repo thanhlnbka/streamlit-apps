@@ -2,13 +2,13 @@ from flask import Flask, request, jsonify
 import onnxruntime as ort
 import cv2 
 import numpy as np
-from tools.process_face import *
+from cores.tools.process_face import *
 
 # Create the Flask app
 app = Flask(__name__)
 
 # Load the face detection model
-face_detect_model = ort.InferenceSession("models/version-RFB-320.onnx")
+face_detect_model = ort.InferenceSession("cores/models/version-RFB-320.onnx")
 threshold = 0.7
 
 def preprocess_image(image_data):
